@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+  <script src="https://unpkg.com/vue@3.0.0/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="app" class="container">
+    <div class="columns is-mobile is-centered">
+      <div class="column is-half">
+        <h1 class="title is-1">Item List and Search Sample</h1>
+      </div>
+    </div>
+    
+    <div class="columns is-mobile is-centered">
+      <div class="column is-half">
+        <table class="table is-striped is-fullwidth">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>商品名</th>
+              <th class="has-text-right">価格</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item in items" :key="item.id">
+              <td>{{ item.id }}</td>
+              <td>{{ item.name }}</td>
+              <td class="has-text-right">{{ item.price }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <p v-if="items.length === 0" class="has-text-centerd">対象の商品はありませんでした</p>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
